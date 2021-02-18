@@ -1,0 +1,318 @@
+@charset "utf-8";
+/* ==============================
+   Small desktop
+   ============================== */
+
+@media only screen and (max-width: 1366px) {
+  /* -- Global -- */
+  h1{
+    font-size: 74px;
+  }
+
+  /* -- Header -- */
+  header{
+    padding: 30px 0;
+  }
+
+  /* -- Hero Banner -- */
+  .e-hero-banner{
+    .e-slide-indicator{
+      margin-left: 15px;
+    }
+    .e-slide-indicator::after{
+      width: 120px;
+    }
+    .e-heading-wrap{
+      left: 0;
+    }
+  }
+
+  /* -- We do -- */
+  .container.p-0{
+    padding-left: 15px !important;
+    padding-right: 15px !important; 
+  }
+  .e-wedo-content{
+    padding-left: 40px;
+  }
+
+  /* -- ODC Partner -- */
+  .e-outcome-percentage{
+    font-size: 32px;
+    padding: 18px 18px 18px 50px;
+  }
+  .e-outcome-text{
+    padding: 12px 8px;
+  }
+  .e-odc-partner{
+    padding-bottom: 60px;
+    img{
+      width: 100%;
+    }
+  }
+
+  /* -- Why us -- */
+  .e-why-us{
+    padding-bottom: 60px;
+    h3, p{
+      padding-left: 40px;
+    }
+    .e-why-us-content{
+      padding: 15px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+
+
+}
+
+
+@media only screen and (max-width: 1199px) {
+
+  
+}
+
+/* ==============================
+   Tablet landskape
+   ============================== */
+@media only screen and (max-width: 1024px) {
+
+
+  /* -- Hero Banner -- */
+  .e-hero-banner{
+    .slick-prev, .slick-next{
+      bottom: 64px;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  /* -- Global --*/
+  .e-t-d-none{
+    display: none;;
+  }
+  h1{
+    font-size: 64px;
+  }
+  p, a{
+    font-size: 17px !important;
+  }
+
+  /* -- Header -- */
+  header{
+    padding: 30px 0;
+  }
+  .e-nav-item{
+    margin-right: 20px !important;
+    font-size: 13px !important;
+  }
+
+  /* -- Hero Banner -- */
+  .e-hero-banner{
+    min-height: initial;
+
+    .e-branding{
+      max-height: 300px;
+    }
+    .e-heading-wrap{
+      height: 70vh;
+      left: 0;
+      padding-bottom: 50px;
+    }
+    .e-slide-indicator::after, .e-slide-indicator{
+      display: none;
+    }
+    .e-expertise-wrap{
+      position: relative;
+    }
+    .e-expertise{
+      padding: 30px;
+    }
+    .slick-prev, .slick-next{
+      bottom: initial;
+      top: 60vh;
+      right: 0;
+      left: initial;
+    }
+    .slick-prev{
+      right: 60px;
+    }
+  }
+  .e-banner-video, .e-banner-image{
+    width: initial;
+    height: 70vh;
+    object-fit: cover;
+  }
+  .e-hero-banner .e-overlay{
+    background: rgb(0 0 0 / 45%);
+  }
+
+
+  /* -- We do -- */
+  .e-wedo{
+    .container.p-0{
+      padding-left: 15px !important;
+      padding-right: 15px !important; 
+    }
+    .e-banner{
+      width: 100%;
+    }
+    .e-wedo-content{
+      padding-left: 0;
+      margin-bottom: 40px;
+    }
+    .e-primary-branding{
+      left: -100px;
+      bottom: 0;
+      z-index: 1;
+      opacity: .7;
+    }
+    .pt-5{
+      padding-top: 0 !important;
+    }
+    p{
+      font-size: 16px !important;
+    }
+    p.pt-4{
+      padding-top: 15px !important; 
+    }
+  }
+
+
+  /* -- ODC Partner -- */
+  .e-outcome-percentage{
+    font-size: 40px;
+    padding: 18px 18px 18px 65px;
+    text-align: center;
+  }
+
+
+  /* -- Why us -- */
+  .e-why-us{
+    h2{
+      padding-bottom: 60px;
+    }
+    .e-item-wrap{
+      margin-bottom: 30px;
+    }
+    .e-why-us-content.e-top{
+      bottom: 0;
+    }
+    .e-why-us-content{
+      padding: 15px;
+    }
+    .e-item-wrap img{
+      padding-bottom: 30px;
+    }
+  }
+
+}
+
+/* ==============================
+   Tablet Portrait
+   ============================== */
+@media only screen and (max-width: 768px) {
+
+  /* -- Global --*/
+  .e-t-d-none{
+    display: none;;
+  }
+  h1{
+    font-size: 52px;
+  }
+  p, a{
+    font-size: 16px !important;
+  }
+
+  h2{
+    font-size: 48px;
+    line-height: 60px;
+  }
+  
+  
+
+  /* -- Hero Banner -- */
+  .e-hero-banner{
+    .e-branding{
+      max-height: 250px;
+    }
+  }
+
+
+  /* -- We do -- */
+  .e-wedo{
+    padding-bottom: 60px;
+    .container.p-0{
+      padding-left: 15px !important;
+      padding-right: 15px !important; 
+    }
+    .e-banner{
+      width: 100%;
+    }
+    .e-wedo-content{
+      padding-left: 0;
+      margin-bottom: 40px;
+    }
+    .e-primary-branding{
+      left: -100px;
+      bottom: 0;
+      z-index: 1;
+      opacity: .7;
+    }
+    .pt-5{
+      padding-top: 3rem!important;
+    }
+    p.pt-4{
+      padding-top: 1.5rem!important; 
+    }
+  }
+
+
+
+
+}
+
+/* ==============================
+   Phone
+   ============================== */
+@media only screen and (max-width: 575px) {
+
+  /* -- Global --*/
+  .e-p-d-none{
+    display: none;;
+  }
+  h1{
+    font-size: 38px;
+  }
+  h2{
+    font-size: 44px;
+    line-height: 60px;
+  }
+  .e-hero-banner{
+    .e-branding{
+      max-height: 200px;
+    }
+  }
+
+  /* -- ODC Partner -- */
+  .e-outcome-percentage{
+    font-size: 24px;
+    padding: 18px 18px 18px 40px;
+    text-align: center;
+  }
+
+}
+
+@media only screen and (max-width: 380px) {
+
+}
+
+
+/* ==============================
+   Small Phone
+   ============================== */
+@media only screen and (max-width: 320px) {
+
+}

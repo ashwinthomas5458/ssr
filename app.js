@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
+const {StaticRouter} = require('react-router-dom');
 const fs = require('fs');
 import App from './src/App';
 
@@ -20,7 +21,11 @@ app.get('/', async (req, res)=>{
   const indexPath = path.resolve(__dirname,'public/index.html')
   const index = fs.readFileSync(indexPath, 'utf-8');
   // get HTML string from the `App` component
-  let appHTML = await ReactDOMServer.renderToString(<App />);
+  let appHTML = await ReactDOMServer.renderToString(
+    <StaticRouter location="/">
+      <App />
+    </StaticRouter>
+  );
   const outputHtml = await index.replace('(---App---)', appHTML);
   // set header and status
   res.contentType( 'text/html' );
