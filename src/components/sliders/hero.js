@@ -2,6 +2,7 @@
 import React from "react"; 
 import Slider from "react-slick";
 import $ from 'jquery';
+import { Link } from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -48,7 +49,7 @@ export default class HeroSlider extends React.Component{
       cssEase: "ease",
       infinite: true,
       autoplay: true,
-      autoplaySpeed: 1000000,
+      autoplaySpeed: 8000,
       pauseOnHover: false,
       arrow: true,
       cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
@@ -58,11 +59,15 @@ export default class HeroSlider extends React.Component{
     return (
       <Slider className="e-hero-slider" {...settings} beforeChange={this.slideAutoChange} >
         <div className="position-relative">
-          <video preload="metadata" onLoadedData="this.play();" className="e-banner-video float-right m-hide" poster={VideoPoster} playsInline autoPlay muted loop id="e-banner-video"> {/* poster={BannerBranding} */}
+          <img className="e-banner-image d-none e-t-d-block" src={VideoPoster} alt="Visionet - Resilient enterprise automation solution"/>
+          <video preload="metadata" className="e-banner-video float-right m-hide e-t-d-none" poster={VideoPoster} playsInline autoPlay muted loop id="e-banner-video"> {/* poster={BannerBranding} */}
             <source src={Banner3} type="video/mp4"/>
             <source src={Banner3webm} type="video/webm" />
-            {/* <source src={Banner3ogg} type="video/ogg" /> */}
+            {
+              //<source src={Banner3ogg} type="video/ogg" />
+            }
           </video>
+
           <img className="e-branding" src={BannerBranding} alt="Visionet Branding"/>
           <div className="e-overlay"></div>
           <ScrollAnimation animateIn='fadeInLeftSmall' delay={800}>
@@ -80,8 +85,13 @@ export default class HeroSlider extends React.Component{
                   <div className="e-expertise">
                     <h5 className="mb-3">Expertise</h5>
                     <p className="pb-4">Our intelligent enterprise automation solution can enhance your business operations efficiently.</p>
-                    <a className="e-hover e-blue-underline" href="/demo">Learn More</a>
-                    <span className="e-link-arrow"></span>
+                    
+                    <div className="e-learn-more-link-wrap">
+                      <Link to="/demo">
+                        <div className="e-learn-more-link e-link-arrow"><span>Learn More</span></div>
+                      </Link>
+                    </div>
+
                   </div>
                 </ScrollAnimation>
               </div>
@@ -107,8 +117,11 @@ export default class HeroSlider extends React.Component{
                   <div className="e-expertise">
                     <h5 className="mb-3">Expertise</h5>
                     <p className="pb-4">Our best mortgage technology and agile services help you scale up your operations in short notice.</p>
-                    <a className="e-hover e-blue-underline" href="/demo">Learn More</a>
-                    <span className="e-link-arrow"></span>
+                    <div className="e-learn-more-link-wrap">
+                      <Link to="/demo">
+                        <div className="e-learn-more-link e-link-arrow"><span>Learn More</span></div>
+                      </Link>
+                    </div>
                   </div>
                 </ScrollAnimation>
               </div>
@@ -117,7 +130,7 @@ export default class HeroSlider extends React.Component{
         </div>
 
         <div className="position-relative">
-          <img className="e-banner-image" src={Banner2} alt="Visionet - Agile, Nimble & Ready"/>
+          <img className="e-banner-image" src={Banner2} alt="Visionet - Domain sensitized fully operational ODC"/>
           <img className="e-branding" src={BannerBranding} alt="Visionet Branding"/>
           <ScrollAnimation animateIn='fadeInLeftSmall' delay={800}>
             <div className="col-lg-10 col-sm-10 e-heading-wrap">
@@ -134,8 +147,11 @@ export default class HeroSlider extends React.Component{
                   <div className="e-expertise">
                     <h5 className="mb-3">Expertise</h5>
                     <p className="pb-4">Our technology-led, secure and agile ODC can delivery business  outcome at scale</p>
-                    <a className="e-hover e-blue-underline" href="/demo">Learn More</a>
-                    <span className="e-link-arrow"></span>
+                    <div className="e-learn-more-link-wrap">
+                      <Link to="/demo">
+                        <div className="e-learn-more-link e-link-arrow"><span>Learn More</span></div>
+                      </Link>
+                    </div>
                   </div>
                 </ScrollAnimation>
               </div>

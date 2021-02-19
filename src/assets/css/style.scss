@@ -193,12 +193,16 @@ a{
     color: $white !important;
   }
 }
-a.e-hover, h3 span, .e-link span {
+a:hover{
+  text-decoration: none !important;
+}
+a.e-hover, h3 span, .e-link span, .e-learn-more span {
   @extend %linkTransition;
 }
+
 a.e-hover:hover, h3:hover span, .e-link:hover span {
   text-decoration: none !important;
-  color: $white;
+  color: $white !important;
   @extend %linkTransitionActive;
 }
 a.e-blue-underline{
@@ -207,7 +211,7 @@ a.e-blue-underline{
 a+span{
   display: inline-block;
 }
-a:hover+span{
+a:hover+span, a:hover span{
   @include animation('slide-right .4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 100ms both');
 }
 .e-link-arrow::after, .e-white-wrrow{
@@ -250,8 +254,7 @@ body::-webkit-scrollbar-thumb {
 .e-hero-banner{
   background: $black;
   min-height: 100vh;
-}
-.e-hero-banner{
+
   .slick-list{
    overflow: visible;
   }
@@ -274,6 +277,27 @@ body::-webkit-scrollbar-thumb {
     position: absolute;
     width: 100%;
     z-index: 3;
+    
+  }
+  .e-learn-more-link-wrap{
+    .e-learn-more-link span{
+      @extend %linkTransition;
+      background-image: linear-gradient(180deg, transparent 92%, $primary-color 0);
+    }
+    &:hover .e-learn-more-link span{
+      @extend %linkTransitionActive;
+      color: $white !important;
+    }
+    &:hover .e-learn-more-link::after{
+      @extend %linkTransitionActive;
+      color: $white !important;
+      @include animation('slide-right .4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 100ms both');
+    }
+    a{
+      &:hover{
+        text-decoration: none;
+      }
+    }
   }
   .e-expertise{
     background: rgba(0, 0, 0, 0.48);
@@ -316,6 +340,10 @@ body::-webkit-scrollbar-thumb {
     top: initial;
     bottom: 70px;
     z-index: 3;
+    transition: all .3s linear!important;
+    &:hover {
+      opacity: .4;
+    }
   }
   .slick-prev{
     right: initial;
@@ -340,6 +368,7 @@ body::-webkit-scrollbar-thumb {
     position: relative;
     top: -3px;
   }
+  
 }
 .e-banner-video, .e-banner-image{
   position: absolute;
@@ -399,6 +428,11 @@ body::-webkit-scrollbar-thumb {
     color: $black !important;
     @include animation('slide-right .4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 100ms both');
   }
+  a{
+    &:hover{
+      text-decoration: none;
+    }
+  }
 }
 
 
@@ -413,6 +447,9 @@ body::-webkit-scrollbar-thumb {
   }
   a{
     color: $primary-color;
+    &:hover{
+      color: $primary-color !important;
+    }
   }
   .e-branding{
     opacity: 0.5;
@@ -525,6 +562,11 @@ body::-webkit-scrollbar-thumb {
       right: 0;
       top: -80px;
       cursor: pointer;
+      img{
+        &:hover {
+          opacity: .4;
+        }
+      }
     }
 
   .slick-next {
@@ -547,6 +589,9 @@ body::-webkit-scrollbar-thumb {
     width: 50px;
     height: 50px;
     background-size: cover;
+    &:hover {
+      opacity: .4;
+    }
   }
 }
 .e-learn-more+span{
@@ -581,6 +626,8 @@ body::-webkit-scrollbar-thumb {
 .slick-arrow.slick-disabled{
   opacity: .5;
 }
+
+
 
 
 /* -- Testimonials -- */
@@ -629,6 +676,7 @@ body::-webkit-scrollbar-thumb {
   }
   .slick-prev, .slick-next {
     display:none !important;
+
   }
   .slick-dots li button:before{
     opacity: 1;
@@ -669,6 +717,9 @@ body::-webkit-scrollbar-thumb {
     width: 50px;
     height: 50px;
     background-size: cover;
+    &:hover {
+      opacity: .4;
+    }
   }
   .slick-next{
     right: 0;
@@ -837,6 +888,12 @@ header{
   left: 0;
   width: 100%;
   z-index: 9;
+  .e-logo{
+    transition: all .3s linear!important;
+    &:hover {
+      @extend %scaleUp
+    }
+  }
 }
 .e-header-wrap{
   padding: 30px;

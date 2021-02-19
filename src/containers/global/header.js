@@ -60,7 +60,9 @@ export default class HeroSlider extends React.Component{
           <div className="container">
             <div className="row e-t-d-none">
               <div className="col-lg-2 col-md-4">
-                <img src={Logo} alt="Visionet"/>
+                <Link to="/">
+                  <img className="e-logo"src={Logo} alt="Visionet"/>
+                </Link>
               </div>
               <div className="col-lg-10 col-md-8 text-right">
                 <span className={this.state.activeNavItem == "About us" ? "e-nav-item e-active mr-5 d-inline-block" : "e-nav-item mr-5 d-inline-block"} onClick={() => this.setState({activeNavItem: "About us", activeArray:  aboutArray, searchActive: false})}>About us</span>

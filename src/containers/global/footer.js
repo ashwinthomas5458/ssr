@@ -161,7 +161,7 @@ function Footer(props){
 
   				<div className="row">
   					<div className="col-lg-12">
-  						<p className="e-rights">© 2021 Visionet Systems. All rights reserved.</p>
+  						<p className="e-rights">© 2020 Visionet Systems. All rights reserved.</p>
   					</div>
   				</div>
         </ScrollAnimation>

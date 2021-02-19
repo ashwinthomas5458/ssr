@@ -8,9 +8,10 @@ import Dummy from './containers/other/main';
 
 class App extends React.Component {
   constructor(props){
-    // console.log = function() {};
-    // console.error = function() {};
-    // console.warn = function() {};
+    console.log = function() {};
+    console.error = function() {};
+    console.warn = function() {};
+    console.disableYellowBox = true
     super(props);
     this.state = {
       
@@ -26,7 +27,7 @@ render(){
     <div className="App">
       <Switch>
         <Route path="/" component={Home} exact/>
-        <Route path="/demo" component={Dummy} exact/>
+        <Route path="/demo" component={Dummy}/>
       </Switch>
    </div>
   );

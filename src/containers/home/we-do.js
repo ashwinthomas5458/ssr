@@ -1,6 +1,7 @@
 import React from 'react';
 // import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, Move, MoveIn, MoveOut, Sticky, StickyIn, ZoomIn } from "react-scroll-motion";
 import ScrollAnimation from 'react-animate-on-scroll';
+import { Link } from 'react-router-dom';
 
 /*Import Assets*/
 import Wedo from '../../assets/images/content/we-do-banner.png';
@@ -32,19 +33,25 @@ function WeDo(props){
             <div className="col-lg-6 col-md-6 pt-5">
               <ScrollAnimation animateIn='fadeInUp' duration={.8} delay={0}>
                 <div className="e-wedo-content">
-                  <h3 className="e-link-arrow-black"><span>Technology Services</span></h3>
+                  <Link to="/demo">
+                    <h3 className="e-link-arrow-black"><span>Technology Services</span></h3>
+                  </Link>
                   <p className="pt-4">Providing custom solutions using BI, Data Science, Cloud Engineering and Testing to outperform the market.</p>
                 </div>
               </ScrollAnimation>
               <ScrollAnimation animateIn='fadeInUp' duration={.8} delay={5}>
                 <div className="e-wedo-content">
-                  <h3 className="e-link-arrow-black"><span>Digital Operations</span></h3>
+                  <Link to="/demo">
+                    <h3 className="e-link-arrow-black"><span>Digital Operations</span></h3>
+                  </Link>
                   <p className="pt-4">Maximising business efficiency and profitability via services like Mortgage Processing, Title & Settlement, Valuation and ODC.</p>
                 </div>
               </ScrollAnimation>
               <ScrollAnimation animateIn='fadeInUp' duration={.8} delay={10}>
                 <div className="e-wedo-content mb-0">
-                  <h3 className="e-link-arrow-black"><span>Complete Solutions</span></h3>
+                  <Link to="/demo">
+                    <h3 className="e-link-arrow-black"><span>Complete Solutions</span></h3>
+                  </Link>
                   <p className="pt-4">Providing built-in solutions like VisiLoanReview, D-TRAC, Loangility, AtClose, Digital QC and Vendor Metrics.</p>
                 </div>
               </ScrollAnimation>
