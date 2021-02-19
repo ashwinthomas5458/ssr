@@ -2,7 +2,6 @@
 import React from "react"; 
 import Slider from "react-slick";
 import ScrollAnimation from 'react-animate-on-scroll';
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -91,9 +90,6 @@ export default class SliderNews extends React.Component{
           <ScrollAnimation animateIn='fadeInUp' delay={300}>
             <UpdateCard img={NewsContentImg4} data="Visionet Systems Joins the Google Cloud Partner Advantage Program to Extend.." to="/demo"/>
           </ScrollAnimation>
-          
-          
-          
           
         </Slider>
       </div>
