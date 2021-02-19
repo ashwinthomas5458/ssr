@@ -33,6 +33,22 @@ app.get('/', async (req, res)=>{
   res.send(outputHtml);
 });
 
+app.get('/demo', async (req, res)=>{
+  const indexPath = path.resolve(__dirname,'public/index.html')
+  const index = fs.readFileSync(indexPath, 'utf-8');
+  // get HTML string from the `App` component
+  let appHTML = await ReactDOMServer.renderToString(
+    <StaticRouter location="/demo">
+      <App />
+    </StaticRouter>
+  );
+  const outputHtml = await index.replace('(---App---)', appHTML);
+  // set header and status
+  res.contentType( 'text/html' );
+  res.status( 200 );
+  res.send(outputHtml);
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
