@@ -29,6 +29,7 @@ export default class Home extends React.Component{
 
   componentWillMount() {
     window.addEventListener('scroll', this.handleScroll);
+    $("html, body").animate({ scrollTop: 0 }, "slow");
   }
 
   

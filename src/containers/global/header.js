@@ -169,7 +169,7 @@ export default class HeroSlider extends React.Component{
                 <div className="row">
                   <div className="offset-7 col-lg-5 p-0">
                     <div className="e-search-input">
-                      <input value={this.state.keyword} onChange={(e) => this.setState({keyword: e.target.value})} type="text" placeholder="Search visionet"/>
+                      <input value={this.state.keyword} autoFocus onChange={(e) => this.setState({keyword: e.target.value})} type="text" placeholder="Search visionet"/>
                     </div>
                   </div>
                 </div>

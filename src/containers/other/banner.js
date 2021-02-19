@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
 
@@ -9,6 +10,7 @@ import BannerBranding from '../../assets/images/branding-elements/banner-v.svg';
 
 
 function DummyBanner(props){
+	$("html, body").animate({ scrollTop: 0 }, "slow");
   return(
   	<section className="e-hero-banner e-demo-banner"> 
       <div className="container p-0 position-relative">

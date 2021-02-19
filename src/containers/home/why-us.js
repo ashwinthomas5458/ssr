@@ -1,7 +1,7 @@
 import React from 'react';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-import BrandingV from '../../assets/images/branding-elements/gradient-v.svg';
+import BrandingV from '../../assets/images/branding-elements/light-gradient.png';
 import WhyExpertise from '../../assets/images/content/whyus-expertise.png';
 import WhyTechnology from '../../assets/images/content/whyus-technology.png';
 import WhyDelivery from '../../assets/images/content/whyus-delivery.png';
@@ -33,6 +33,11 @@ export default class WhyUs extends React.Component{
 		          </div>
 		        </div>
 		        <div className="row pt-5">
+              <div className="e-branding-wrap">
+                <ScrollAnimation animateIn='ZoomIn' delay={200}>
+                  <img className="e-branding" src={BrandingV} alt="Expertise in BFSI Industry"/>
+                </ScrollAnimation>
+              </div>
 		          <div className="col-lg-6 position-relative e-item-wrap">
                 <ScrollAnimation animateIn="fadeInLeft" delay={200}>
 		              <img className="e-why-us-content-img" src={WhyExpertise} alt="Expertise in BFSI Industry"/>

@@ -459,6 +459,17 @@ body::-webkit-scrollbar-thumb {
 /* -- Why us -- */
 .e-why-us{
   padding: 120px 0;
+  position: relative;
+  .e-branding-wrap{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    top: 50%;
+  }
+  .e-branding{
+    
+  }
 }
 .e-why-us{
   h2{
@@ -508,7 +519,7 @@ body::-webkit-scrollbar-thumb {
 .e-bg-img-slider-wrap{
   background-size: cover;
   background-repeat: no-repeat;
-  transition: all 0.5s ease-out;
+  transition: background-image 0.5s ease-out;
     .e-arrow-wrap{
       position: absolute;
       right: 0;

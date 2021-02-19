@@ -10,6 +10,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Banner1 from '../../assets/images/content/banner-1.png';
 import Banner2 from '../../assets/images/content/banner-2.png';
 import Banner3 from '../../assets/images/content/banner-3.mp4';
+import Banner3webm from '../../assets/images/content/banner-3.webm';
+import Banner3ogg from '../../assets/images/content/banner-3.ogg';
 import VideoPoster from '../../assets/images/content/video-poster.png';
 import BannerBranding from '../../assets/images/branding-elements/banner-v.svg';
 
@@ -56,8 +58,10 @@ export default class HeroSlider extends React.Component{
     return (
       <Slider className="e-hero-slider" {...settings} beforeChange={this.slideAutoChange} >
         <div className="position-relative">
-          <video preload="metadata" className="e-banner-video float-right m-hide" poster={VideoPoster} playsInline autoPlay muted loop id="e-banner-video"> {/* poster={BannerBranding} */}
+          <video preload="metadata" onLoadedData="this.play();" className="e-banner-video float-right m-hide" poster={VideoPoster} playsInline autoPlay muted loop id="e-banner-video"> {/* poster={BannerBranding} */}
             <source src={Banner3} type="video/mp4"/>
+            <source src={Banner3webm} type="video/webm" />
+            <source src={Banner3ogg} type="video/ogg" />
           </video>
           <img className="e-branding" src={BannerBranding} alt="Visionet Branding"/>
           <div className="e-overlay"></div>
