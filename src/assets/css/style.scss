@@ -17,7 +17,8 @@ Use:   "Marketing and Branding Purpose"
 1. Import Fonts
 2. Colors
 3. Global
-5. Buttons and CTA
+4. Sections
+
 -------------------------------------------------------------------*/
 
 
@@ -64,28 +65,58 @@ $dark: #272727;
   background-position: center;
   cursor: pointer;
 }
-/*%arrowHover{
-  -webkit-animation: e-arrow-left-right .4s cubic-bezier(.25,.46,.45,.94) .1s both;
-    animation: e-arrow-left-right .4s cubic-bezier(.25,.46,.45,.94) .1s both;
-    content: url(/2461d37…/dce39/assets/images/right-arrow-active.svg);
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }  
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }  
+  @keyframes #{$animation-name} {
+    @content;
+  }
 }
-@-webkit-keyframes e-arrow-left-right {
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
+@include keyframes(slide-right) {
   0% {
-    opacity: 1;
     -webkit-transform: translateX(0px);
     transform: translateX(0px);
   }
-  3% {
-    opacity: 1;
+  100% {
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+}
+%scaleUp{
+  -webkit-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  transform: scale(1.15);
+}
+
+@include keyframes(slide-left) {
+  0% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
   }
   100% {
-    -webkit-transform: translateX(15px);
-    transform: translateX(15px);
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
   }
-}*/
-
-
-
+}
 
 %linkTransition{
   position: relative;
@@ -102,11 +133,13 @@ $dark: #272727;
   -o-transition: background-size .4s ease;
   transition: background-size .4s ease;
 }
+%linkTransitionBlueLine{
+  background-image: linear-gradient(180deg, transparent 92%, $primary-color 0);
+}
 %linkTransitionActive{
   background-size: 100% 100%;
   cursor: pointer;
 }
-
 .container{
   max-width: 1280px;
 }
@@ -154,19 +187,29 @@ a{
   font-size: 18px;
   position: relative;
   display: inline-block;
-}
-a:hover{
-  text-decoration: none;
+  line-height: 34px;
+  &::hover{
+    text-decoration: none !important;
+    color: $white !important;
+  }
 }
 a.e-hover, h3 span, .e-link span {
   @extend %linkTransition;
 }
 a.e-hover:hover, h3:hover span, .e-link:hover span {
+  text-decoration: none !important;
+  color: $white;
   @extend %linkTransitionActive;
 }
-
-
-
+a.e-blue-underline{
+  @extend %linkTransitionBlueLine;
+}
+a+span{
+  display: inline-block;
+}
+a:hover+span{
+  @include animation('slide-right .4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 100ms both');
+}
 .e-link-arrow::after, .e-white-wrrow{
   @extend %arrow;
   background-image: url("../images/icons/right-arrow-white.svg");
@@ -175,10 +218,33 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
   @extend %arrow;
   background-image: url("../images/icons/right-arrow-black.svg");
 }
-.e-link-arrow-blue::after{
+.e-link-arrow-blue+span{
   @extend %arrow;
   background-image: url("../images/icons/right-arrow-blue.svg");
 }
+.e-link-arrow-blue{
+  background-image: linear-gradient(180deg, transparent 92%, $primary-color 0) !important;
+  color: $primary-color !important;
+  &::hover{
+    color: $primary-color !important;
+  }
+}
+
+/* -- Scroll Bar -- */
+body::-webkit-scrollbar {
+  width: 5px;
+}
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: $dark-blue;
+  outline: 1px solid slategrey;
+}
+
+
+/* --- 4. Section Style--- */
+
 
 /* -- Hero Banner -- */
 .e-hero-banner{
@@ -194,10 +260,6 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
     padding-top: 180px;
     left: calc((1140px - 100%)/2);
     z-index: 1;
-    /*position: absolute;
-    z-index: 99;
-    top: 200px;
-    left: calc((1140px - 100%)/2);*/
   }
   .e-branding{
     position: absolute;
@@ -230,8 +292,6 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
     margin-right: 0;
     position: relative;
   }
-
-
   .slick-next {
     background: url('../images/icons/hero-slider-arrow-right.svg') center center no-repeat!important;
     &::before {
@@ -254,7 +314,7 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
     background-size: cover;
     position: absolute;
     top: initial;
-    bottom: 50px;
+    bottom: 70px;
     z-index: 3;
   }
   .slick-prev{
@@ -289,12 +349,6 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
 }
 
 
-
-
-
-
-
-
 /* -- We Do -- */
 .e-wedo{
   padding: 120px 0; 
@@ -324,9 +378,27 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
     background-repeat: no-repeat;
   }
 }
+.e-wedo+div{
+  height: 100% !important;
+}
 .e-wedo-content{
   padding-left: 100px;
   margin-bottom: 80px;
+  position: relative;
+  cursor: pointer;
+  h3 span{
+    @extend %linkTransition;
+    background-image: linear-gradient(180deg, transparent 92%, #000 0);
+  }
+  &:hover h3 span{
+    @extend %linkTransitionActive;
+    color: $black !important;
+  }
+  &:hover h3::after{
+    @extend %linkTransitionActive;
+    color: $black !important;
+    @include animation('slide-right .4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 100ms both');
+  }
 }
 
 
@@ -341,6 +413,12 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
   }
   a{
     color: $primary-color;
+  }
+  .e-branding{
+    opacity: 0.5;
+    position: absolute;
+    right: -30px;
+    bottom: 0;
   }
 }
 .e-outcomes{
@@ -376,21 +454,6 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
   padding: 6px 4px;
   opacity: .8;
 }
-/*.e-blur-branding{
-  background: url("../images/branding-elements/white-v.png");
-  height: 100px;
-  width: 60px;
-  backdrop-filter: blur(12px);
-  display: inline-block;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-*/
-
-
-
-
 
 
 /* -- Why us -- */
@@ -404,7 +467,7 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
 }
 .e-why-us-content{
   padding: 30px;
-  background: rgba(7, 31, 53, 0.72);
+  background: rgba(7, 31, 53, 0.82);
   backdrop-filter: blur(24px);
   position: absolute;
   bottom: 0;
@@ -435,8 +498,6 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
 }
 
 
-
-
 /* -- Our soluctions -- */
 .e-solutions{
   padding-top: 120px;
@@ -447,17 +508,22 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
 .e-bg-img-slider-wrap{
   background-size: cover;
   background-repeat: no-repeat;
-
   transition: all 0.5s ease-out;
+    .e-arrow-wrap{
+      position: absolute;
+      right: 0;
+      top: -80px;
+      cursor: pointer;
+    }
 
   .slick-next {
-    background: url('../images/icons/right-arrow-white.svg') center center no-repeat!important;
+    /*background: url('../images/icons/right-arrow-white.svg') center center no-repeat!important;*/
     &::before {
       display: none;
     }
   }
   .slick-prev {
-    background: url('../images/icons/left-arrow-white.svg') center center no-repeat!important;
+    /*background: url('../images/icons/left-arrow-white.svg') center center no-repeat!important;*/
     left: initial;
     right: 60px;
     display: none;
@@ -472,18 +538,38 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
     background-size: cover;
   }
 }
+.e-learn-more+span{
+  @extend %arrow;
+  background-image: url("../images/icons/right-arrow-white.svg");
+  @include animation('slide-right .4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 100ms both');
+}
 .e-slider-content{
   height: 520px;
   border-right: 1px solid rgb(255 255 255 / 50%);
   padding: 30px 30px 100px 30px;
   cursor: pointer;
-}
-.e-slider-content{
   h3{
     margin-bottom: 30px;
   }
+  .e-link-arrow{
+    @extend %linkTransition;
+  }
+
+  .e-learn-more{
+    @extend %linkTransition;
+  }
+  &:hover .e-learn-more{
+    color: $white;
+    @extend %linkTransitionActive;
+  }
+}
+.e-slider-content-link:hover{
+  text-decoration: none;
 }
 
+.slick-arrow.slick-disabled{
+  opacity: .5;
+}
 
 
 /* -- Testimonials -- */
@@ -512,9 +598,9 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
 .e-testimonial-card{
   background: url("../images/bg/review.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
-  padding: 100px;
+  padding: 60px;
   position: relative;
   z-index: 1;
 }
@@ -545,12 +631,37 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
 }
 
 
-
-
 /* -- Latest Stories -- */
 .e-latest-stories{
   background-color: $black;
   padding: 100px 0;
+  .slick-list{
+    padding-bottom: 30px;
+  }
+  .slick-next {
+    background: url('../images/icons/right-arrow-white.svg') center center no-repeat!important;
+    &::before {
+      display: none;
+    }
+  }
+  .slick-prev {
+    background: url('../images/icons/left-arrow-white.svg') center center no-repeat!important;
+    left: initial;
+    right: 80px;
+    display: none;
+    &::before {
+      display: none;
+    }
+  }
+  .slick-prev, .slick-next{
+    top: -100px;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+  }
+  .slick-next{
+    right: 0;
+  }
 }
 .e-latest-stories-card{
   position: relative;
@@ -565,6 +676,7 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
     padding: 0 25px;
     position: absolute;
     bottom: -30px;
+    text-align: left;
   }
   h4 span{
     @extend %linkTransition;
@@ -602,6 +714,14 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
   }
   .e-cta-content:first-child{
     border-right: 1px solid $dark;
+    
+  }
+  .e-cta-search-wrap{
+    padding-top: 20px;
+    transition: all .3s linear!important;
+    &:hover {
+      @extend %scaleUp
+    }
   }
   .e-cta-search::before{
     content: " ";
@@ -623,6 +743,7 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
     font-size: 24px;
     line-height: 0;
     cursor: pointer;
+
   }
   .e-cta-link{
     @extend %heading;
@@ -637,148 +758,6 @@ a.e-hover:hover, h3:hover span, .e-link:hover span {
     top: -5px;
   }
 }
-
-
-/*%arrowHover{
-  -webkit-animation: e-arrow-left-right .4s cubic-bezier(.25,.46,.45,.94) .1s both;
-    animation: e-arrow-left-right .4s cubic-bezier(.25,.46,.45,.94) .1s both;
-    content: url(/2461d37…/dce39/assets/images/right-arrow-active.svg);
-}
-@-webkit-keyframes e-arrow-left-right {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateX(0px);
-    transform: translateX(0px);
-  }
-  3% {
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translateX(15px);
-    transform: translateX(15px);
-  }
-}*/
-/*
-.e-cta-content:hover .e-link-arrow::after {
-    -webkit-animation: eee .9s cubic-bezier(.25,.46,.45,.94) .1s both;
-    animation: eee .9s cubic-bezier(.25,.46,.45,.94) .1s both;
-
-    -webkit-transition: all .4s ease ;
-    -moz-transition: all .4s ease;
-    -ms-transition: all .4s ease;
-    -o-transition: all .4s ease;
-    transition: all .4s ease;
-
-    -webkit-transform: translateX(15px);
-    transform: translateX(15px);
-  }
-
-  @-webkit-keyframes eee {
-    0% {
-      opacity: 1;
-      -webkit-transform: translateX(0px);
-      transform: translateX(0px);
-    }
-    3% {
-      opacity: 1;
-    }
-    100% {
-      -webkit-transform: translateX(15px);
-      transform: translateX(15px);
-    }
-  }
-
-*/
-
-
-/* -- Header -- */
-header{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9;
-  padding: 30px;
-}
-.e-nav-item{
-  @extend %paragraph;
-  font-size: 14px;
-  line-height: 25px;
-  cursor: pointer;
-  background-image: linear-gradient(180deg, transparent 85%, $primary-color 0);
-  @extend %linkTransition;
-  &:hover {
-      @extend %linkTransitionActive;
-    }
-}
-.e-nav-item.e-active{
-  @extend %linkTransitionActive;
-}
-
-
-/* -- Menu -- */
-.e-menu{
-  background-color: $white;
-  margin-top: 30px;
-}
-.e-left-menu{
-  padding: 30px;
-  height: 100%;
-  background-color: $dark-blue;
-  h6{
-    font-size: 18px;
-  }
-}
-.e-menu-link{
-  @extend %paragraph;
-  font-size: 16px;
-  line-height: 20px;
-  @extend %linkTransition;
-  background-image: linear-gradient(180deg, transparent 92%, $primary-color 0);
-}
-.e-menu-link:hover, .e-menu-link.e-active{
-  @extend %linkTransitionActive;
-  color: $primary-color;
-}
-.e-right-menu{
-  padding: 30px;
-  h6{
-    font-size: 18px;
-    color: $black;
-  }
-  p, a{
-    color: $black;
-  }
-  p{
-    font-size: 16px;
-  }
-  ul{
-    padding-left: 15px;
-  }
-  ul li a, ul li{
-    color: $primary-color;
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 300;
-  }
-  ul li a{
-    text-decoration: underline;
-    margin-bottom: 15px;
-  }
-  .e-close{
-    background: url("../images/icons/close.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    cursor: pointer;
-    width: 18px;
-    height: 18px;
-    display: inline-block;
-    position: absolute;
-    right: 40px;
-  }
-}
-
 
 /* -- Footer -- */
 footer{
@@ -820,33 +799,245 @@ footer{
 /* -- Social widget -- */
 .e-social-icon{
   margin-right: 58px;
+  transition: all .3s linear!important;
+  &:hover {
+    @extend %scaleUp
+  }
 }
 .e-social-widget{
   .e-social-icon{
     margin-right: 25px;
   }
+  .animated{
+    display: inline-block;
+  }
 }
-
-.e-fb:hover svg path{
-  fill: #1876f2;
-}
-.e-tw:hover svg path{
-  fill: #1876f2;
-}
-.e-yt:hover svg path{
-  fill: #ed3833;
-}
-.e-gh:hover svg path{
-  fill: #000;
-}
-
-
-
 .e-branding-v-wrap{
   height: 100vh;
   width: 100vw;
   text-align: center;
 }
+
+
+/* -- Header -- */
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+}
+.e-header-wrap{
+  padding: 30px;
+  .e-search{
+    width: 18px;
+    height: 18px;
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    background: url("../images/icons/search-white.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+    transition: all .3s linear!important;
+    &:hover {
+      @extend %scaleUp
+    }
+  }
+  .e-search.e-close{
+    background: url("../images/icons/close-white.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+}
+header.e-show .e-header-wrap, .e-header-wrap.e-active{
+  background: rgba(0, 0, 0, 0.48);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  opacity: 1;
+}
+header.e-hide .e-header-wrap{
+  opacity: 0;
+}
+.e-header-wrap.e-active{
+  opacity: 1 !important;
+}
+.e-nav-item{
+  @extend %paragraph;
+  font-size: 14px;
+  line-height: 25px;
+  cursor: pointer;
+  background-image: linear-gradient(180deg, transparent 85%, $primary-color 0);
+  @extend %linkTransition;
+  &:hover {
+    @extend %linkTransitionActive;
+  }
+  a{
+    @extend %paragraph;
+    font-size: 14px;
+    line-height: 25px;
+    cursor: pointer;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+.e-nav-item.e-active{
+  @extend %linkTransitionActive;
+}
+.e-hamburger, .e-menu-close{
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background: url("../images/icons/menu.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+.e-menu-close{
+  background: url("../images/icons/close-white.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.e-search-wrap{
+  background-color: transparent !important;
+  input{
+    width: 100%;
+    background-color: $black;
+    padding: 30px;
+    border: 1px solid #6b6b6b;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-image: url("../images/icons/search-white.svg");
+    background-repeat: no-repeat;
+    background-size: 26px;
+    background-position: 97%;
+    padding-right: 60px;
+    &:focus {
+      outline: none;
+    }
+    &::-webkit-input-placeholder {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    &:-ms-input-placeholder {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    &::placeholder {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
+}
+
+
+/* -- Menu -- */
+.e-menu{
+  background-color: $white;
+  position: relative;
+  z-index: 99;
+  margin-top: 30px;
+}
+.e-menu-wrap .animated{
+  position: relative;
+  z-index: 9;
+}
+.e-left-menu{
+  padding: 30px;
+  height: 100%;
+  background-color: $dark-blue;
+  h6{
+    font-size: 18px;
+  }
+}
+.e-menu-link{
+  @extend %paragraph;
+  font-size: 16px;
+  line-height: 20px;
+  @extend %linkTransition;
+  background-image: linear-gradient(180deg, transparent 92%, $primary-color 0);
+}
+.e-menu-link:hover, .e-menu-link.e-active{
+  @extend %linkTransitionActive;
+  color: $primary-color;
+  text-decoration: none !important;
+}
+.e-right-menu{
+  padding: 30px;
+  h6{
+    font-size: 18px;
+    color: $black;
+  }
+  p, a{
+    color: $black;
+  }
+  p{
+    font-size: 16px;
+    padding-right: 60px;
+  }
+  ul{
+    padding-left: 15px;
+  }
+  ul li a, ul li{
+    color: $primary-color;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 300;
+  }
+  ul li a{
+    text-decoration: underline;
+    margin-bottom: 15px;
+  }
+  .e-close{
+    background: url("../images/icons/close.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    position: absolute;
+    right: 40px;
+  }
+}
+.e-menu-overlay{
+  position: fixed;
+  left: 0;
+  top: 85px;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(72 72 72 / 32%);
+  z-index: 0;
+}
+
+
+
+/* -- Demo Page -- */
+.e-demo-banner{
+  .e-left-arrow{
+    @extend %arrow;
+    background-image: url("../images/icons/left-arrow-white.svg");
+    margin-right: 30px;
+    margin-left: 0;
+    display: inline-block;
+  }
+  .e-back-link{
+    @extend %paragraph;
+    cursor: pointer;
+  }
+  .e-back-wrap:hover span{
+    @include animation('slide-left .4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 100ms both');
+  }
+}
+
+
 
 
 

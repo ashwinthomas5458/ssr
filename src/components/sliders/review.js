@@ -1,6 +1,7 @@
 
 import React from "react"; 
 import Slider from "react-slick";
+import ScrollAnimation from 'react-animate-on-scroll';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -36,21 +37,21 @@ export default class SliderReviews extends React.Component{
     return (
       <div className="e-testimonial-card text-center" >
         <Slider className="" {...settings} beforeChange={this.slideAutoChange}>
-          <div>
+          <ScrollAnimation animateIn='fadeInUp' delay={0}>
             <p className="e-testimonial-content pb-4">Visionet has been a fantastic partner of mine for many years. Their service levels and turn times have always been outstanding, and during this current COVID-19 pandemic, they haven’t missed a beat. There is no way I could have scaled my business as quickly as I have if I didn’t have Visionet as a partner.</p>
             <h6 className="pb-2">President & General Counsel</h6>
             <p className="e-testimonial-designation">National Provider of Title Insurance and Settlement Services</p>
-          </div>
-          <div>
+          </ScrollAnimation>
+          <ScrollAnimation animateIn='fadeInUp' delay={0}>
             <p className="e-testimonial-content pb-4">Visionet has been a fantastic partner of mine for many years. Their service levels and turn times have always been outstanding, and during this current COVID-19 pandemic, they haven’t missed a beat. There is no way I could have scaled my business as quickly as I have if I didn’t have Visionet as a partner.</p>
             <h6 className="pb-2">President & General Counsel</h6>
             <p className="e-testimonial-designation">National Provider of Title Insurance and Settlement Services</p>
-          </div>
-          <div>
+          </ScrollAnimation>
+          <ScrollAnimation animateIn='fadeInUp' delay={0}>
             <p className="e-testimonial-content pb-4">Visionet has been a fantastic partner of mine for many years. Their service levels and turn times have always been outstanding, and during this current COVID-19 pandemic, they haven’t missed a beat. There is no way I could have scaled my business as quickly as I have if I didn’t have Visionet as a partner.</p>
             <h6 className="pb-2">President & General Counsel</h6>
             <p className="e-testimonial-designation">National Provider of Title Insurance and Settlement Services</p>
-          </div>
+          </ScrollAnimation>
         </Slider>
       </div>
     );

@@ -1,9 +1,8 @@
 import React from 'react';
+import ScrollAnimation from 'react-animate-on-scroll';
 
-import UpdateCard from '../../components/cards/news-updates';
-import NewsContentImg1 from '../../assets/images/content/latest-updates-1.png';
-import NewsContentImg2 from '../../assets/images/content/latest-updates-2.png';
-import NewsContentImg3 from '../../assets/images/content/latest-updates-3.png';
+import SliderNews from '../../components/sliders/news';
+
 
 function LatestUpdates(props){
 	return(
@@ -11,18 +10,17 @@ function LatestUpdates(props){
 			<div className="container p-0">
 				<div className="row">
 					<div className="col-lg-12">
-						<h2>Latest stories.</h2>
+            <ScrollAnimation animateIn='fadeInUp' delay={50}>
+              <h5 className="mb-5">News</h5>
+            </ScrollAnimation>
+            <ScrollAnimation animateIn='fadeInUp' delay={200}>
+              <h2>Latest stories.</h2>
+            </ScrollAnimation>
 					</div>
 				</div>
 				<div className="row mt-5">
-					<div className="col-lg-4">
-						<UpdateCard img={NewsContentImg1} data="Tackle Origination Costs this 2021- Leverage Tech" to="/"/>
-					</div>
-					<div className="col-lg-4">
-						<UpdateCard img={NewsContentImg2} data="How the US Housing Market will React to a COVID Vaccine" to="/"/>
-					</div>
-					<div className="col-lg-4">
-						<UpdateCard img={NewsContentImg3} data="Residential Mortgage – Things to Expect with the New President-Elect Joe Biden Taking Over" to="/"/>
+					<div className="col-lg-12">
+						<SliderNews/>
 					</div>
 				</div>
 			</div>

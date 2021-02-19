@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom';
 import $ from 'jquery';
 
 import Home from './containers/home/main';
-
+import Dummy from './containers/other/main';
 
 class App extends React.Component {
   constructor(props){
@@ -26,6 +26,7 @@ render(){
     <div className="App">
       <Switch>
         <Route path="/" component={Home} exact/>
+        <Route path="/demo" component={Dummy}/>
       </Switch>
    </div>
   );

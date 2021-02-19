@@ -1,4 +1,5 @@
 import React from 'react';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 import Client from '../../components/cards/client';
 import SliderReviews from '../../components/sliders/review';
@@ -20,45 +21,70 @@ function Testimonials(props){
 			<div className="container p-0">
 				<div className="row">
 					<div className="col-lg-6">
-						<h2>Clients & Testimonials.</h2>
+            <ScrollAnimation animateIn='fadeInUp' delay={50}>
+              <h5 className="mb-5">People say</h5>
+            </ScrollAnimation>
+            <ScrollAnimation animateIn='fadeInUp' delay={200}>
+						  <h2>Clients & Testimonials.</h2>
+            </ScrollAnimation>
 					</div>
 				</div>
 				<div className="row justify-content-center mt-5">
-					<div className="col-lg-3">
-						<Client img={Client1} alt="Visionet clients - steve madden"/>
+					<div className="col-md-3 col-6">
+            <ScrollAnimation animateIn='fadeInLeftSmall' delay={50}>
+						  <Client img={Client1} alt="Visionet clients - steve madden"/>
+            </ScrollAnimation>
 					</div>
-					<div className="col-lg-3">
-						<Client img={Client2} alt="Visionet clients - joice"/>
+					<div className="col-md-3 col-6">
+            <ScrollAnimation animateIn='fadeInLeftSmall' delay={100}>
+						  <Client img={Client2} alt="Visionet clients - joice"/>
+            </ScrollAnimation>
 					</div>
-					<div className="col-lg-3">
-						<Client img={Client3} alt="Visionet clients - freeman"/>
+					<div className="col-md-3 col-6">
+            <ScrollAnimation animateIn='fadeInLeftSmall' delay={150}>
+						  <Client img={Client3} alt="Visionet clients - freeman"/>
+            </ScrollAnimation>
 					</div>
-					<div className="col-lg-3">
-						<Client img={Client4} alt="Visionet clients - dooney & bourke"/>
+					<div className="col-md-3 col-6">
+            <ScrollAnimation animateIn='fadeInLeftSmall' delay={200}>
+						  <Client img={Client4} alt="Visionet clients - dooney & bourke"/>
+            </ScrollAnimation>
 					</div>
-					<div className="col-lg-3">
-						<Client img={Client5} alt="Visionet clients - qvc"/>
+					<div className="col-md-3 col-6">
+            <ScrollAnimation animateIn='fadeInLeftSmall' delay={250}>
+						  <Client img={Client5} alt="Visionet clients - qvc"/>
+            </ScrollAnimation>
 					</div>
-					<div className="col-lg-3">
-						<Client img={Client6} alt="Visionet clients - tribune"/>
+					<div className="col-md-3 col-6">
+            <ScrollAnimation animateIn='fadeInLeftSmall' delay={300}>
+						  <Client img={Client6} alt="Visionet clients - tribune"/>
+            </ScrollAnimation>
 					</div>
-					<div className="col-lg-3">
-						<Client img={Client7} alt="Visionet clients - kellwood"/>
+					<div className="col-md-3 col-6">
+            <ScrollAnimation animateIn='fadeInLeftSmall' delay={350}>
+						  <Client img={Client7} alt="Visionet clients - kellwood"/>
+            </ScrollAnimation>
 					</div>
-					<div className="col-lg-3">
-						<Client img={Client8} alt="Visionet clients - unti"/>
+					<div className="col-md-3 col-6">
+            <ScrollAnimation animateIn='fadeInLeftSmall' delay={400}>
+						  <Client img={Client8} alt="Visionet clients - unti"/>
+            </ScrollAnimation>
 					</div>
-					<div className="col-lg-3">
-						<Client img={Client9} alt="Visionet clients - ascena"/>
+					<div className="col-md-3 col-6">
+            <ScrollAnimation animateIn='fadeInLeftSmall' delay={450}>
+						  <Client img={Client9} alt="Visionet clients - ascena"/>
+            </ScrollAnimation>
 					</div>
-					<div className="col-lg-3">
-						<Client img={Client10} alt="Visionet clients - vitamin world"/>
+					<div className="col-md-3 col-6">
+            <ScrollAnimation animateIn='fadeInLeftSmall' delay={500}>
+						  <Client img={Client10} alt="Visionet clients - vitamin world"/>
+            </ScrollAnimation>
 					</div>
 				</div>
 
 				<div className="row justify-content-center">
 					<div className="col-lg-10">
-						<SliderReviews/>
+						  <SliderReviews/>
 					</div>
 				</div>
 			</div>

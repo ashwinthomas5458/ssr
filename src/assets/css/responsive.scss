@@ -10,7 +10,7 @@
   }
 
   /* -- Header -- */
-  header{
+  .e-header-wrap{
     padding: 30px 0;
   }
 
@@ -28,15 +28,23 @@
   }
 
   /* -- We do -- */
-  .container.p-0{
-    padding-left: 15px !important;
-    padding-right: 15px !important; 
+  .e-wedo{
+    .container.p-0{
+      padding-left: 15px !important;
+      padding-right: 15px !important; 
+    }
   }
   .e-wedo-content{
-    padding-left: 40px;
+    padding-left: 40px; 
   }
 
   /* -- ODC Partner -- */
+  .e-odc-partner{
+    .container.p-0{
+      padding-left: 15px !important;
+      padding-right: 15px !important; 
+    }
+  }
   .e-outcome-percentage{
     font-size: 32px;
     padding: 18px 18px 18px 50px;
@@ -54,6 +62,10 @@
   /* -- Why us -- */
   .e-why-us{
     padding-bottom: 60px;
+    .container.p-0{
+      padding-left: 15px !important;
+      padding-right: 15px !important; 
+    }
     h3, p{
       padding-left: 40px;
     }
@@ -61,6 +73,32 @@
       padding: 15px;
     }
   }
+
+  /* -- People say -- */
+  .e-testimonials{
+    .container.p-0{
+      padding-left: 15px !important;
+      padding-right: 15px !important; 
+    }
+  }
+
+  /* -- News -- */
+  .e-latest-stories{
+    .container.p-0{
+      padding-left: 15px !important;
+      padding-right: 15px !important; 
+    }
+  }
+
+  /* -- Footer -- */
+  footer{
+    padding-bottom: 60px;
+    .container.p-0{
+      padding-left: 15px !important;
+      padding-right: 15px !important; 
+    }
+  }
+
 }
 
 @media only screen and (max-width: 1200px) {
@@ -93,6 +131,9 @@
   .e-t-d-none{
     display: none;;
   }
+  .e-t-d-block{
+    display: block !important;
+  }
   h1{
     font-size: 64px;
   }
@@ -101,12 +142,20 @@
   }
 
   /* -- Header -- */
-  header{
+  .e-header-wrap{
     padding: 30px 0;
   }
   .e-nav-item{
     margin-right: 20px !important;
     font-size: 13px !important;
+  }
+
+
+  /* -- Menu -- */
+  .e-menu-wrap{
+    .pr-0{
+      padding-right: 15px !important; 
+    }
   }
 
   /* -- Hero Banner -- */
@@ -208,6 +257,56 @@
     }
   }
 
+  /* -- Our Solution -- */
+  .e-solutions{
+    h2{
+      padding-bottom: 30px;
+    }
+    .slick-prev, .slick-next{
+      top: -50px;
+    }
+    .slick-prev{
+      right: 80px;
+    }
+    .slick-next{
+      right: 5px;
+    }  
+  }
+
+
+  /* -- Testimonials -- */
+  .e-testimonials{
+    padding-bottom: 60px;
+  }
+
+  /* -- Latest News -- */
+  .e-latest-stories{
+    h2{
+      padding-bottom: 30px;
+    }
+    .slick-prev, .slick-next{
+      top: -50px;
+    }
+    .slick-prev{
+      right: 80px;
+    }
+    .slick-next{
+      right: 0px;
+    }  
+  }
+
+  /* -- Footer -- */
+  footer{
+    padding-bottom: 30px;
+    .e-link{
+      margin-bottom: 15px;
+      font-size: 14px !important;
+    }
+    .e-rights{
+      font-size: 12px !important;
+    }
+  }
+
 }
 
 /* ==============================
@@ -218,6 +317,9 @@
   /* -- Global --*/
   .e-t-d-none{
     display: none;;
+  }
+  .e-t-d-block{
+    display: block !important;
   }
   h1{
     font-size: 52px;
@@ -231,7 +333,11 @@
     line-height: 60px;
   }
   
-  
+    
+  /* -- Header -- */
+  .e-nav-item a{
+    font-size: 13px !important;
+  }
 
   /* -- Hero Banner -- */
   .e-hero-banner{
@@ -269,7 +375,29 @@
     }
   }
 
+  /* -- CTA -- */
+  .e-cta {
+    .e-cta-search{
+      font-size: 16px !important;
+    }
+    .e-cta-search::before{
+      width: 18px;
+      height: 18px;
+    }
+  }
 
+
+  /* -- Footer -- */
+  footer{
+    padding-bottom: 30px;
+    .e-link{
+      margin-bottom: 15px;
+      font-size: 14px !important;
+    }
+    .e-rights{
+      font-size: 12px !important;
+    }
+  }
 
 
 }
@@ -281,7 +409,10 @@
 
   /* -- Global --*/
   .e-p-d-none{
-    display: none;;
+    display: none;
+  }
+  .e-p-d-block{
+    display: block !important;
   }
   h1{
     font-size: 38px;
@@ -302,6 +433,34 @@
     padding: 18px 18px 18px 40px;
     text-align: center;
   }
+
+  /*Why us*/
+  .e-why-us h2{
+    padding-bottom: 0;
+  }
+
+  /* -- CTA -- */
+  .e-cta{
+    .e-cta-search{
+      font-size: 24px !important;
+    }
+    .e-cta-search::before{
+      width: 22px;
+      height: 22px;
+    }
+    .e-cta-link{
+      font-size: 32px !important;
+    }
+  }
+
+  /* -- Footer -- */
+  footer{
+    .e-address-wrap{
+      text-align: left !important;
+      padding-top: 30px;
+    }
+  }
+
 
 }
 
