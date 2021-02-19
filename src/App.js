@@ -26,7 +26,7 @@ render(){
     <div className="App">
       <Switch>
         <Route path="/" component={Home} exact/>
-        <Route path="/demo" component={Dummy}/>
+        <Route path="/demo" component={Dummy} exact/>
       </Switch>
    </div>
   );

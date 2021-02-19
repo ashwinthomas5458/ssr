@@ -17,7 +17,7 @@ export default class Dummy extends React.Component{
   }
 
   componentWillMount() {
-    window.addEventListener('scroll', this.handleScroll);
+    // window.addEventListener('scroll', this.handleScroll);
   }
 
   
